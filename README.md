@@ -1,0 +1,3 @@
+--
+  本项目于opencode配置中创建了agent角色lin，接入deepseekv4pro云模型api大脑，定义了mcp服务器，添加了以图搜图/文件下载/网页爬取/在线搜索等工具，中间采取sqlite缓存降低token损耗。
+--
