@@ -1,5 +1,5 @@
 ---
-name: image-search
+name: image-search # 必须与 skill 文件名一致
 description: >-
   当用户上传图片并询问图片来源、出处、拍摄地点、相似图片时激活。
   使用 reverse_image_search 工具检索。也适用于"以图搜图"、

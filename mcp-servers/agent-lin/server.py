@@ -1,6 +1,6 @@
 import os
 import re
-from pathlib import Path
+from pathlib import Path 
 
 from fastmcp import FastMCP
 from dotenv import load_dotenv
@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 from ddgs import DDGS
 
 load_dotenv()
-mcp = FastMCP("agent-lin")
+mcp = FastMCP("agent-lin") 
 
 TAVILY_API_KEY = os.getenv("TAVILY_API_KEY", "")
 _has_tavily = bool(TAVILY_API_KEY and TAVILY_API_KEY.startswith("tvly-") and "替换" not in TAVILY_API_KEY)
@@ -83,7 +83,12 @@ def fetch_webpage(url: str) -> str:
 
     try:
         import httpx
-        resp = httpx.get(url, timeout=30, follow_redirects=True)
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36",
+            "Referer": "https://www.bilibili.com/",
+            "Accept-Language": "zh-CN,zh;q=0.9,en;q=0.8",
+        }
+        resp = httpx.get(url, headers=headers, timeout=30, follow_redirects=True)
         resp.raise_for_status()
 
         from html.parser import HTMLParser
